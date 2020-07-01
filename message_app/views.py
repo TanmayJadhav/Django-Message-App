@@ -9,15 +9,7 @@ URL = 'https://www.sms4india.com/api/v1/sendCampaign'
 
 
 
-config={
-    'apiKey': "AIzaSyCzrLaRxqdVHSMA8ytUv3BMwD9Jjcmyl54",
-    'authDomain': "messageapp-e9500.firebaseapp.com",
-    'databaseURL': "https://messageapp-e9500.firebaseio.com",
-    'projectId': "messageapp-e9500",
-    'storageBucket': "messageapp-e9500.appspot.com",
-    'messagingSenderId': "280684575834",
-    
-}
+# Add you firebase Config file here
 
 firebase = pyrebase.initialize_app(config)
 
@@ -74,11 +66,9 @@ def send_message(request):
     if request.method=='POST':
         number=request.POST.get('number')
         message=request.POST.get('message')
-        m= f'message'
-        print(number)
-        print(message)
         try:    
-            response = sendPostRequest(URL, 'VW28D2NFBQ9E39H1QGFMGZK06LSR26IW', 'WVPIBGSG9389BS6Z', 'stage', '8097020354', 'tanmayjadhavtj11@gmail.com', )
+            # enter your details from way2sms api 
+            response = sendPostRequest(URL, 'provided-api-key', 'provided-secret', 'prod/stage', 'valid-to-mobile', 'active-sender-id', 'message-text' )
             print(response.text)
         except:
             message.info('Not Sent')
